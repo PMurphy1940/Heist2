@@ -1,5 +1,5 @@
 namespace Heist2 {
-    partial class Program {
+
         public class Bank {
             public int CashOnHand { get; set; }
 
@@ -9,11 +9,13 @@ namespace Heist2 {
 
             public int SecurityGuardScore { get; set; }
 
-            public bool IsSecure () {
-                if (AlarmScore == 0 && VaultScore == 0 && SecurityGuardScore == 0) {
-                    return false;
-                } else return true;
+            public bool IsSecure {
+                get {
+                    if (AlarmScore <= 0 && VaultScore <= 0 && SecurityGuardScore <= 0) {
+                        return false;
+                    } else return true;
+                }
             }
         }
-    }
+    
 }
