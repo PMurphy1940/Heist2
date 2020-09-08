@@ -17,7 +17,11 @@ namespace Heist2 {
             }
             aBank.AlarmScore = ScoreChange;
             Console.ForegroundColor = ConsoleColor.Gray;
+
         }
+
+
+
     }
 
 }
