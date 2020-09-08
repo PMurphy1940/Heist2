@@ -71,9 +71,22 @@ namespace Heist2 {
                 tom,
                 jonas
             };
-            addToRolodex (rolodex);
 
-            // printRolodex (rolodex);
+            string response;
+            do {
+                int operatives = rolodex.Count ();
+
+                Console.WriteLine ($"There are {operatives} operatives available in the Rolodex");
+
+                Console.WriteLine ("Let's enter a new operative to the rolodex (hit Enter now to bypass.)");
+                response = Console.ReadLine ();
+                if (response.Length == 0) {
+                    break;
+                }
+                addOperative (response, rolodex);
+            } while (response.Length != 0);
+
+            printRolodex (rolodex);
 
         }
         /*
@@ -121,22 +134,6 @@ namespace Heist2 {
         }
 
         // Method assembles a new operative and adds to the Rolodex
-        static void addToRolodex (List<IRobber> rolodex) {
-
-            int operatives = rolodex.Count ();
-
-            Console.WriteLine ($"There are {operatives} operatives available in the Rolodex");
-
-            Console.WriteLine ("Let's enter a new operative to the rolodex (hit Enter now to bypass.)");
-            string response;
-            do {
-                response = Console.ReadLine ().ToString ();
-
-                addOperative (response, rolodex);
-            } while (response.Length != 0);
-
-            if (response.Length != 0) { }
-        }
 
         static void addOperative (string newName, List<IRobber> rolodex) {
             Console.Clear ();
@@ -216,7 +213,6 @@ namespace Heist2 {
                     });
 
                 }
-                printRolodex (rolodex);
             }
 
         }
